@@ -1,32 +1,40 @@
 lockfileVersion: 5.4
 
-specifiers:
-  '@antfu/eslint-config-ts': ^0.34.1
-  '@changesets/cli': ^2.26.0
-  '@commitlint/cli': ^17.4.2
-  '@commitlint/config-conventional': ^17.4.2
-  '@commitlint/cz-commitlint': ^17.4.2
-  '@tsconfig/node-lts-strictest': ^18.12.1
-  commitizen: ^4.3.0
-  eslint: ^8.32.0
-  inquirer: '8'
-  lint-staged: ^13.1.0
-  simple-git-hooks: ^2.8.1
-  typescript: ^4.9.5
+importers:
 
-devDependencies:
-  '@antfu/eslint-config-ts': 0.34.1_et5x32uxl7z5ldub3ye5rhlyqm
-  '@changesets/cli': 2.26.0
-  '@commitlint/cli': 17.4.2
-  '@commitlint/config-conventional': 17.4.2
-  '@commitlint/cz-commitlint': 17.4.2_i4x6owxztfhigiiqlxwntt4k24
-  '@tsconfig/node-lts-strictest': 18.12.1
-  commitizen: 4.3.0
-  eslint: 8.32.0
-  inquirer: 8.2.5
-  lint-staged: 13.1.0
-  simple-git-hooks: 2.8.1
-  typescript: 4.9.5
+  .:
+    specifiers:
+      '@antfu/eslint-config-ts': ^0.34.1
+      '@changesets/cli': ^2.26.0
+      '@commitlint/cli': ^17.4.2
+      '@commitlint/config-conventional': ^17.4.2
+      '@commitlint/cz-commitlint': ^17.4.2
+      '@tsconfig/node-lts-strictest': ^18.12.1
+      commitizen: ^4.3.0
+      eslint: ^8.32.0
+      inquirer: '8'
+      lint-staged: ^13.1.0
+      simple-git-hooks: ^2.8.1
+      typescript: ^4.9.5
+    devDependencies:
+      '@antfu/eslint-config-ts': 0.34.1_et5x32uxl7z5ldub3ye5rhlyqm
+      '@changesets/cli': 2.26.0
+      '@commitlint/cli': 17.4.2
+      '@commitlint/config-conventional': 17.4.2
+      '@commitlint/cz-commitlint': 17.4.2_i4x6owxztfhigiiqlxwntt4k24
+      '@tsconfig/node-lts-strictest': 18.12.1
+      commitizen: 4.3.0
+      eslint: 8.32.0
+      inquirer: 8.2.5
+      lint-staged: 13.1.0
+      simple-git-hooks: 2.8.1
+      typescript: 4.9.5
+
+  packages/eslint-config-base:
+    specifiers:
+      eslint: ^8.32.0
+    devDependencies:
+      eslint: 8.32.0
 
 packages:
 
