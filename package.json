@@ -1,0 +1,60 @@
+{
+  "name": "@liting-yes/template-monorepo-ts",
+  "type": "module",
+  "private": false,
+  "description": "a universal template for monorepo with Typescript",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "author": "liting <luz.liting@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/dev-standard/template-monorepo-ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dev-standard/template-monorepo-ts.git"
+  },
+  "keywords": [
+    "template",
+    "typescript",
+    "monorepo"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "format": "eslint --fix .",
+    "commit": "git-cz",
+    "prepare": "git config core.hooksPath .git/hooks/ && npx simple-git-hooks",
+    "release": "changeset add && changeset version"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config-ts": "^0.34.1",
+    "@changesets/cli": "^2.26.0",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@commitlint/cz-commitlint": "^17.4.2",
+    "@tsconfig/node-lts-strictest": "^18.12.1",
+    "commitizen": "^4.3.0",
+    "eslint": "^8.32.0",
+    "inquirer": "8",
+    "lint-staged": "^13.1.0",
+    "simple-git-hooks": "^2.8.1",
+    "typescript": "^4.9.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "npx commitlint  --edit ''"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,json}": "eslint --fix"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
