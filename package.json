@@ -1,23 +1,23 @@
 {
-  "name": "@liting-yes/template-monorepo-ts",
+  "name": "@liting-yes/eslint-config",
   "type": "module",
   "private": false,
-  "description": "a universal template for monorepo with Typescript",
+  "description": "a elegant eslint config",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "author": "liting <luz.liting@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/dev-standard/template-monorepo-ts#readme",
+  "homepage": "https://github.com/liting-yes/eslint-config#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dev-standard/template-monorepo-ts.git"
+    "url": "https://github.com/liting-yes/eslint-config.git"
   },
   "keywords": [
-    "template",
-    "typescript",
-    "monorepo"
+    "eslint",
+    "preset",
+    "config"
   ],
   "scripts": {
     "lint": "eslint .",

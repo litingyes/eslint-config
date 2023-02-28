@@ -1,15 +1,15 @@
 {
-  "name": "@liting-yes/template-monorepo-ts-b",
-  "version": "1.2.0",
+  "name": "@liting-yes/eslint-config-base",
+  "version": "0.1.0",
   "private": false,
   "description": "",
   "author": "liting <luz.liting@gmail.com>",
   "license": "MIT",
-  "keywords": [],
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "keywords": [
+    "eslint",
+    "preset",
+    "config"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

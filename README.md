@@ -1,3 +1,3 @@
-# template-monorepo-ts
+# eslint-config
 
-a universal template for monorepo with Typescript
+a elegant eslint config
