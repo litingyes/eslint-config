@@ -13,5 +13,8 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "@liting-yes/eslint-config-ts": "workspace:^0.1.0"
   }
 }

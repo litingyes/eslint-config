@@ -30,6 +30,12 @@ importers:
       simple-git-hooks: 2.8.1
       typescript: 4.9.5
 
+  packages/eslint-config:
+    specifiers:
+      '@liting-yes/eslint-config-ts': workspace:^0.1.0
+    dependencies:
+      '@liting-yes/eslint-config-ts': link:../eslint-config-ts
+
   packages/eslint-config-base:
     specifiers:
       eslint: ^8.32.0
@@ -43,6 +49,12 @@ importers:
     devDependencies:
       eslint: 8.32.0
 
+  packages/eslint-config-react:
+    specifiers:
+      '@liting-yes/eslint-config-ts': workspace:^0.1.0
+    dependencies:
+      '@liting-yes/eslint-config-ts': link:../eslint-config-ts
+
   packages/eslint-config-ts:
     specifiers:
       '@liting-yes/eslint-config-base': workspace:^0.1.0
@@ -55,6 +67,12 @@ importers:
       '@typescript-eslint/parser': 5.54.0_typescript@4.9.5
     devDependencies:
       typescript: 4.9.5
+
+  packages/eslint-config-vue:
+    specifiers:
+      '@liting-yes/eslint-config-ts': workspace:^0.1.0
+    dependencies:
+      '@liting-yes/eslint-config-ts': link:../eslint-config-ts
 
 packages:
 
