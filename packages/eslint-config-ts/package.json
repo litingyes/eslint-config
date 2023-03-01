@@ -1,0 +1,28 @@
+{
+  "name": "@liting-yes/eslint-config-ts",
+  "version": "0.1.0",
+  "private": false,
+  "description": "",
+  "author": "liting <luz.liting@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "eslint",
+    "preset",
+    "config"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@liting-yes/eslint-config-base": "workspace:^0.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}
