@@ -6,10 +6,17 @@
   "author": "liting <luz.liting@gmail.com>",
   "license": "MIT",
   "keywords": [
+    "lint",
     "eslint",
     "preset",
-    "config"
+    "config",
+    "javascript",
+    "json",
+    "yaml",
+    "toml",
+    "typescript"
   ],
+  "main": "./index.js",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

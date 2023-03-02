@@ -6,9 +6,14 @@
   "author": "liting <luz.liting@gmail.com>",
   "license": "MIT",
   "keywords": [
+    "lint",
     "eslint",
     "preset",
-    "config"
+    "config",
+    "javascript",
+    "json",
+    "yaml",
+    "toml"
   ],
   "main": "./index.js",
   "publishConfig": {

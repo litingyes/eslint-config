@@ -7,9 +7,15 @@
   "author": "liting <luz.liting@gmail.com>",
   "license": "MIT",
   "keywords": [
+    "lint",
     "eslint",
     "preset",
     "config",
+    "javascript",
+    "json",
+    "yaml",
+    "toml",
+    "typescript",
     "react"
   ],
   "main": "./index.js",

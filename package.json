@@ -1,5 +1,5 @@
 {
-  "type": "module",
+  "type": "commonjs",
   "private": false,
   "description": "a elegant eslint config",
   "publishConfig": {
