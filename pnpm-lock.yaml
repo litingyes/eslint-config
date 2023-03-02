@@ -9,6 +9,7 @@ importers:
       '@commitlint/cli': ^17.4.2
       '@commitlint/config-conventional': ^17.4.2
       '@commitlint/cz-commitlint': ^17.4.2
+      '@liting-yes/eslint-config': workspace:^0.1.0
       '@tsconfig/node-lts-strictest': ^18.12.1
       commitizen: ^4.3.0
       eslint: ^8.32.0
@@ -22,6 +23,7 @@ importers:
       '@commitlint/cli': 17.4.2
       '@commitlint/config-conventional': 17.4.2
       '@commitlint/cz-commitlint': 17.4.2_i4x6owxztfhigiiqlxwntt4k24
+      '@liting-yes/eslint-config': link:packages/eslint-config-vue
       '@tsconfig/node-lts-strictest': 18.12.1
       commitizen: 4.3.0
       eslint: 8.32.0
