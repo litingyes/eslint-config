@@ -25,7 +25,7 @@ module.exports = {
     '!.vscode',
     '!.github',
   ],
-  extends: ['eslint:recommended','plugin:import/recommended', 'plugin:jsonc/recommended-with-json', 'plugin:yml/standard', 'plugin:toml/standard'],
+  extends: ['eslint:recommended','plugin:import/recommended','plugin:unicorn/recommended', 'plugin:jsonc/recommended-with-json', 'plugin:yml/standard', 'plugin:toml/standard'],
   overrides: [
     {
       files: ['*.json', '*.json5', '*.jsonc'],
@@ -109,4 +109,7 @@ module.exports = {
       parser: 'toml-eslint-parser',
     },
   ],
+  rules: {
+    'unicorn/prefer-module': 'warn'
+  }
 }
