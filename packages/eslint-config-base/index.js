@@ -113,6 +113,7 @@ module.exports = {
       parser: 'toml-eslint-parser',
     },
   ],
+  plugins: ['html'],
   rules: {
     'unicorn/prefer-module': 'warn'
   }
