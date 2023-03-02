@@ -1,5 +1,6 @@
 {
-  "name": "@liting-yes/eslint-config",
+  "name": "@liting-yes/eslint-config-react",
+  "type": "commonjs",
   "version": "0.1.0",
   "private": false,
   "description": "",
@@ -8,13 +9,26 @@
   "keywords": [
     "eslint",
     "preset",
-    "config"
+    "config",
+    "react"
   ],
+  "main": "./index.js",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "peerDependencies": {
+    "eslint": "^8.32.0"
+  },
   "dependencies": {
-    "@liting-yes/eslint-config-ts": "workspace:^0.1.0"
+    "@liting-yes/eslint-config-base": "workspace:^0.1.0",
+    "@liting-yes/eslint-config-ts": "workspace:^0.1.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "local-pkg": "^0.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0"
   }
 }
