@@ -21,6 +21,10 @@
     "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
-    "@liting-yes/eslint-config-ts": "workspace:^0.1.0"
+    "@liting-yes/eslint-config-base": "workspace:^0.1.0",
+    "@liting-yes/eslint-config-react": "workspace:^0.1.0",
+    "@liting-yes/eslint-config-ts": "workspace:^0.1.0",
+    "@liting-yes/eslint-config-vue": "workspace:^0.1.0",
+    "local-pkg": "^0.4.3"
   }
 }

@@ -30,9 +30,17 @@ importers:
 
   packages/eslint-config:
     specifiers:
+      '@liting-yes/eslint-config-base': workspace:^0.1.0
+      '@liting-yes/eslint-config-react': workspace:^0.1.0
       '@liting-yes/eslint-config-ts': workspace:^0.1.0
+      '@liting-yes/eslint-config-vue': workspace:^0.1.0
+      local-pkg: ^0.4.3
     dependencies:
+      '@liting-yes/eslint-config-base': link:../eslint-config-base
+      '@liting-yes/eslint-config-react': link:../eslint-config-react
       '@liting-yes/eslint-config-ts': link:../eslint-config-ts
+      '@liting-yes/eslint-config-vue': link:../eslint-config-vue
+      local-pkg: 0.4.3
 
   packages/eslint-config-base:
     specifiers:
