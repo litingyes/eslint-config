@@ -1,5 +1,6 @@
 {
-  "name": "@liting-yes/eslint-config",
+  "name": "@liting-yes/eslint-config-vue",
+  "type": "commonjs",
   "version": "0.1.0",
   "private": false,
   "description": "",
@@ -8,13 +9,26 @@
   "keywords": [
     "eslint",
     "preset",
-    "config"
+    "config",
+    "vue"
   ],
+  "main": "./index.js",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "peerDependencies": {
+    "eslint": "^8.32.0",
+    "typescript": "^4.9.5"
+  },
   "dependencies": {
-    "@liting-yes/eslint-config-ts": "workspace:^0.1.0"
+    "@liting-yes/eslint-config-base": "workspace:^0.1.0",
+    "@liting-yes/eslint-config-ts": "workspace:^0.1.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "local-pkg": "^0.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "typescript": "^4.9.5"
   }
 }
