@@ -1,5 +1,4 @@
 {
-  "name": "@liting-yes/eslint-config",
   "type": "module",
   "private": false,
   "description": "a elegant eslint config",
@@ -27,7 +26,6 @@
     "release": "changeset add && changeset version"
   },
   "devDependencies": {
-    "@antfu/eslint-config-ts": "^0.34.1",
     "@changesets/cli": "^2.26.0",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",

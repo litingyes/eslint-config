@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@liting-yes/eslint-config-base', 'plugin:@typescript-eslint/recommended-requiring-type-checking'],
+  extends: ['@liting-yes/eslint-config-base', 'plugin:@typescript-eslint/recommended'],
   plugins: ['@typescript-eslint'],
   overrides: [
     {
