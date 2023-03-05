@@ -5,20 +5,21 @@ const hasUnocss = localpkg.isPackageExists('@unocss/core')
 
 module.exports = {
   env: {
-    
-    node:    true,
     browser: true,
     es2022:  true,
+    node:    true,
   },
-  parserOptions: {
-    ecmaVersion:  'latest',
-    sourceType:   'module',
-    ecmaFeatures: {
-      globalReturn:  false,
-      impliedStrict: true,
-      jsx:           false,
-    },
-  },
+  'extends': [
+    'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:unicorn/recommended',
+    hasTailwindcss ? 'plugin:tailwindcss/recommended' : '',
+    'plugin:jsonc/recommended-with-json',
+    'plugin:yml/standard',
+    'plugin:toml/standard',
+    'plugin:markdown/recommended',
+    hasUnocss ? '@unocss' : '',
+  ],
   ignorePatterns: [
     '*.d.ts',
     'CHANGELOG.md',
@@ -30,17 +31,6 @@ module.exports = {
     'yarn.lock',
     '!.vscode',
     '!.github',
-  ],
-  'extends': [
-    'eslint:recommended',
-    'plugin:import/recommended',
-    'plugin:unicorn/recommended',
-    hasTailwindcss ? 'plugin:tailwindcss/recommended' : '',
-    'plugin:jsonc/recommended-with-json',
-    'plugin:yml/standard',
-    'plugin:toml/standard',
-    'plugin:markdown/recommended',
-    hasUnocss ? '@unocss' : '',
   ],
   overrides: [
     {
@@ -58,8 +48,7 @@ module.exports = {
         'jsonc/sort-keys': [
           'error',
           {
-            pathPattern: '^$',
-            order:       [
+            order: [
               'publisher',
               'name',
               'displayName',
@@ -104,18 +93,19 @@ module.exports = {
               'lint-staged',
               'eslintConfig',
             ],
+            pathPattern: '^$',
           },
           {
-            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies$',
             order:       { type: 'asc' },
+            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies$',
           },
           {
-            pathPattern: '^exports.*$',
-            order:       [
+            order: [
               'types',
               'require',
               'import',
             ],
+            pathPattern: '^exports.*$',
           },
         ],
       },
@@ -132,27 +122,21 @@ module.exports = {
       parser: 'toml-eslint-parser',
     },
   ],
-  plugins: [ 'html' ],
-  rules:   {
-    // eslint
-    'array-callback-return':         'error',
-    'no-await-in-loop':              'warn',
-    'no-constant-binary-expression': 'error',
-    'no-constructor-return':         'error',
-    'no-duplicate-imports':          [
-      'error',
-      { includeExports: true },
-    ],
-    'no-new-native-nonconstructor':    'error',
-    'no-promise-executor-return':      'error',
-    'no-self-compare':                 'error',
-    'no-template-curly-in-string':     'error',
-    'no-unmodified-loop-condition':    'error',
-    'no-unreachable-loop':             'error',
-    'no-unused-private-class-members': 'error',
-    'no-use-before-define':            'error',
-    'require-atomic-updates':          'error',
-    'accessor-pairs':                  [
+  parserOptions: {
+    ecmaFeatures: {
+      globalReturn:  false,
+      impliedStrict: true,
+      jsx:           false,
+    },
+    ecmaVersion: 'latest',
+    sourceType:  'module',
+  },
+  plugins: [
+    'html',
+    'sort-keys-fix',
+  ],
+  rules: {
+    'accessor-pairs': [
       'error',
       {
         enforceForClassMembers: true,
@@ -160,13 +144,65 @@ module.exports = {
         setWithoutGet:          true,
       },
     ],
+    'array-bracket-newline': [
+      'error',
+      {
+        minItems:  2,
+        multiline: true,
+      },
+    ],
+    
+    'array-bracket-spacing': [
+      'error',
+      'always',
+      {
+        arraysInArrays:  true,
+        objectsInArrays: true,
+        singleValue:     true,
+      },
+    ],
+
+    'array-callback-return': 'error',
+    
+    'array-element-newline': [
+      'error',
+      'always',
+    ],
+    
     'arrow-body-style': [
       'error',
       'as-needed',
       { requireReturnForObjectLiteral: false },
     ],
+    
+    'arrow-parens': [
+      'error',
+      'as-needed',
+      { requireForBlockBody: true },
+    ],
+    
+    'arrow-spacing': [
+      'error',
+      {
+        after:  true,
+        before: true,
+      },
+    ],
+    
     'block-scoped-var': 'error',
-    camelcase:          [
+    
+    'block-spacing': [
+      'error',
+      'always',
+    ],
+    
+    'brace-style': [
+      'error',
+      '1tbs',
+      { allowSingleLine: false },
+    ],
+    
+    camelcase: [
       'error',
       {
         ignoreDestructuring: false,
@@ -175,6 +211,7 @@ module.exports = {
         properties:          'always',
       },
     ],
+    
     'capitalized-comments': [
       'error',
       'never',
@@ -183,38 +220,88 @@ module.exports = {
         ignoreInlineComments:      false,
       },
     ],
+    
     'class-methods-use-this': [
       'error',
       { enforceForClassFields: false },
     ],
+    
+    'comma-dangle': [
+      'error',
+      'always-multiline',
+    ],
+    
+    'comma-spacing': [
+      'error',
+      {
+        after:  true,
+        before: false,
+      },
+    ],
+    
+    'comma-style': [
+      'error',
+      'last',
+    ],
+    
     complexity: [
       'error',
       10,
     ],
+    
+    'computed-property-spacing': [
+      'error',
+      'never',
+      { enforceForClassMembers: true },
+    ],
+    
     'consistent-return': [
       'error',
       { treatUndefinedAsUnspecified: false },
     ],
+    
     'consistent-this': [
       'error',
       'that',
     ],
+    
     curly: [
       'error',
       'multi-or-nest',
       'consistent',
     ],
-    'default-case':       'error',
-    'default-case-last':  'error',
+    
+    'default-case': 'error',
+    
+    'default-case-last': 'error',
+    
     'default-param-last': 'error',
-    'dot-notation':       [
+    
+    'dot-location': [
+      'error',
+      'property',
+    ],
+    
+    'dot-notation': [
       'error',
       { allowKeywords: false },
     ],
+    
+    'eol-last': [
+      'error',
+      'always',
+    ],
+    
     eqeqeq: [
       'error',
       'always',
     ],
+    
+    'func-call-spacing': [
+      'error',
+      'never',
+    ],
+    
     'func-name-matching': [
       'error',
       'always',
@@ -223,22 +310,46 @@ module.exports = {
         includeCommonJSModuleExports: false,
       },
     ],
+    
     'func-names': [
       'error',
       'as-needed',
     ],
+    
     'func-style': [
       'error',
       'expression',
       { allowArrowFunctions: true },
     ],
+    
+    'function-call-argument-newline': [
+      'error',
+      'never',
+    ],
+    
+    'function-paren-newline': [
+      'error',
+      'multiline-arguments',
+    ],
+    
+    'generator-star-spacing': [
+      'error',
+      {
+        after:  false,
+        before: true,
+      },
+    ],
+    
     'grouped-accessor-pairs': [
       'error',
       'getBeforeSet',
     ],
+    
     'guard-for-in': 'error',
-    'id-denylist':  'off',
-    'id-length':    [
+    
+    'id-denylist': 'off',
+    
+    'id-length': [
       'error',
       {
         max:        64,
@@ -246,16 +357,88 @@ module.exports = {
         properties: 'always',
       },
     ],
-    'id-match':          'off',
+    
+    'id-match': 'off',
+    
+    'implicit-arrow-linebreak': [
+      'error',
+      'beside',
+    ],
+    
+    indent: [
+      'error',
+      2,
+    ],
+    
     'init-declarations': [
       'error',
       'always',
     ],
+    
+    'jsx-quotes': [
+      'error',
+      'prefer-single',
+    ],
+    
+    'key-spacing': [
+      'error',
+      {
+        afterColon:  true,
+        align:       'value',
+        beforeColon: false,
+        mode:        'strict',
+      },
+    ],
+    
+    'keyword-spacing': [
+      'error',
+      {
+        after:  true,
+        before: true,
+      },
+    ],
+    
+    'line-comment-position': [
+      'error',
+      { position: 'above' },
+    ],
+    
+    'linebreak-style': [
+      'error',
+      'unix',
+    ],
+    
+    'lines-around-comment': [
+      'error',
+      {
+        afterBlockComment:          false,
+        afterLineComment:           false,
+        allowArrayEnd:              false,
+        allowArrayStart:            true,
+        allowBlockEnd:              false,
+        allowBlockStart:            true,
+        allowClassEnd:              false,
+        allowClassStart:            true,
+        allowObjectEnd:             false,
+        allowObjectStart:           true,
+        applyDefaultIgnorePatterns: false,
+        beforeBlockComment:         true,
+        beforeLineComment:          true,
+      },
+    ],
+    
+    'lines-between-class-members': [
+      'error',
+      'always',
+      { exceptAfterSingleLine: false },
+    ],
+    
     'logical-assignment-operators': [
       'error',
       'always',
       { enforceForIfStatements: true },
     ],
+    
     'max-classes-per-file': [
       'error',
       {
@@ -263,10 +446,27 @@ module.exports = {
         max:               3,
       },
     ],
+    
     'max-depth': [
       'error',
       3,
     ],
+    
+    'max-len': [
+      'error',
+      {
+        code:                   128,
+        comments:               128,
+        ignoreComments:         false,
+        ignoreRegExpLiterals:   true,
+        ignoreStrings:          true,
+        ignoreTemplateLiterals: true,
+        ignoreTrailingComments: false,
+        ignoreUrls:             true,
+        tabWidth:               2,
+      },
+    ],
+    
     'max-lines': [
       'warn',
       {
@@ -275,6 +475,7 @@ module.exports = {
         skipComments:   true,
       },
     ],
+    
     'max-lines-per-function': [
       'warn',
       {
@@ -284,23 +485,38 @@ module.exports = {
         skipComments:   true,
       },
     ],
+    
     'max-nested-callbacks': [
       'warn',
       3,
     ],
+    
     'max-params': [
       'warn',
       6,
     ],
+    
     'max-statements': [
       'warn',
       50,
       { ignoreTopLevelFunctions: true },
     ],
+    
+    'max-statements-per-line': [
+      'error',
+      { max: 1 },
+    ],
+    
     'multiline-comment-style': [
       'error',
       'starred-block',
     ],
+    
+    'multiline-ternary': [
+      'error',
+      'always-multiline',
+    ],
+    
     'new-cap': [
       'error',
       {
@@ -309,17 +525,35 @@ module.exports = {
         properties: true,
       },
     ],
-    'no-alert':             'error',
+    
+    'new-parens': [
+      'error',
+      'always',
+    ],
+    
+    'newline-per-chained-call': [
+      'error',
+      { ignoreChainWithDepth: 3 },
+    ],
+    
+    'no-alert': 'error',
+    
     'no-array-constructor': 'warn',
-    'no-bitwise':           'off',
-    'no-caller':            'error',
-    'no-confusing-arrow':   [
+    
+    'no-await-in-loop': 'warn',
+    
+    'no-bitwise': 'off',
+    
+    'no-caller': 'error',
+    
+    'no-confusing-arrow': [
       'warn',
       {
         allowParens:        true,
         onlyOneSimpleParam: true,
       },
     ],
+    
     'no-console': [
       'error',
       {
@@ -329,26 +563,62 @@ module.exports = {
         ],
       },
     ],
-    'no-continue':    'warn',
-    'no-div-regex':   'warn',
+    
+    'no-constant-binary-expression': 'error',
+    
+    'no-constructor-return': 'error',
+    
+    'no-continue': 'warn',
+    
+    'no-div-regex': 'warn',
+    
+    'no-duplicate-imports': [
+      'error',
+      { includeExports: true },
+    ],
+    
     'no-else-return': [
       'error',
       { allowElseIf: true },
     ],
+    
     'no-empty-function': [
       'error',
       { allow: [ 'constructors' ] },
     ],
+    
     'no-empty-static-block': 'error',
-    'no-eq-null':            'error',
-    'no-eval':               [
+    
+    'no-eq-null': 'error',
+    
+    'no-eval': [
       'error',
       { allowIndirect: true },
     ],
-    'no-extend-native':     'warn',
-    'no-extra-bind':        'error',
-    'no-extra-label':       'error',
-    'no-floating-decimal':  'error',
+    
+    'no-extend-native': 'warn',
+    
+    'no-extra-bind': 'error',
+    
+    'no-extra-label': 'error',
+    
+    'no-extra-parens': [
+      'error',
+      'all',
+      {
+        conditionalAssign:                  false,
+        enforceForArrowConditionals:        true,
+        enforceForFunctionPrototypeMethods: true,
+        enforceForNewInMemberExpressions:   true,
+        enforceForSequenceExpressions:      false,
+        ignoreJSX:                          'multi-line',
+        nestedBinaryExpressions:            false,
+        returnAssign:                       false,
+      },
+    ],
+    
+    'no-floating-decimal': 'error',
+    
     'no-implicit-coercion': [
       'error',
       {
@@ -358,69 +628,123 @@ module.exports = {
         string:                    true,
       },
     ],
+    
     'no-implicit-globals': [
       'error',
       { lexicalBindings: true },
     ],
-    'no-implied-eval':    'error',
+    
+    'no-implied-eval': 'error',
+    
     'no-inline-comments': 'error',
-    'no-invalid-this':    [
+    
+    'no-invalid-this': [
       'error',
       { capIsConstructor: false },
     ],
-    'no-iterator':  'error',
+    
+    'no-iterator': 'error',
+    
     'no-label-var': 'error',
-    'no-labels':    [
+    
+    'no-labels': [
       'error',
       {
         allowLoop:   true,
         allowSwitch: true,
       },
     ],
-    'no-lone-blocks':     'error',
-    'no-lonely-if':       'error',
-    'no-loop-func':       'error',
-    'no-magic-numbers':   'off',
+    
+    'no-lone-blocks': 'error',
+    
+    'no-lonely-if': 'error',
+    
+    'no-loop-func': 'error',
+    
+    'no-magic-numbers': 'off',
+    
     'no-mixed-operators': [
       'error',
       { allowSamePrecedence: true },
     ],
+    
     'no-multi-assign': [
       'warn',
       { ignoreNonDeclaration: false },
     ],
-    'no-multi-str':         'error',
+    
+    'no-multi-spaces': [
+      'error',
+      { ignoreEOLComments: false },
+    ],
+    
+    'no-multi-str': 'error',
+    
+    'no-multiple-empty-lines': [
+      'error',
+      {
+        max:    1,
+        maxBOF: 0,
+        maxEOF: 1,
+      },
+    ],
+    
     'no-negated-condition': 'error',
-    'no-nested-ternary':    'error',
-    'no-new':               'error',
-    'no-new-func':          'error',
-    'no-new-object':        'error',
-    'no-new-wrappers':      'error',
-    'no-octal-escape':      'error',
-    'no-param-reassign':    [
+    
+    'no-nested-ternary': 'error',
+    
+    'no-new': 'error',
+    
+    'no-new-func': 'error',
+    
+    'no-new-native-nonconstructor': 'error',
+    
+    'no-new-object': 'error',
+    
+    'no-new-wrappers': 'error',
+    
+    'no-octal-escape': 'error',
+    
+    'no-param-reassign': [
       'error',
       { props: true },
     ],
+    
     'no-plusplus': [
       'warn',
       { allowForLoopAfterthoughts: true },
     ],
-    'no-proto':                 'error',
-    'no-restricted-exports':    'off',
-    'no-restricted-globals':    'off',
-    'no-restricted-imports':    'off',
+    
+    'no-promise-executor-return': 'error',
+    
+    'no-proto': 'error',
+    
+    'no-restricted-exports': 'off',
+    
+    'no-restricted-globals': 'off',
+    
+    'no-restricted-imports': 'off',
+    
     'no-restricted-properties': 'off',
-    'no-restricted-syntax':     'off',
-    'no-return-assign':         [
+    
+    'no-restricted-syntax': 'off',
+    
+    'no-return-assign': [
       'error',
       'except-parens',
     ],
+    
     'no-return-await': 'error',
-    'no-script-url':   'error',
-    'no-sequences':    [
+    
+    'no-script-url': 'error',
+    
+    'no-self-compare': 'error',
+    
+    'no-sequences': [
       'error',
       { allowInParentheses: false },
     ],
+    
     'no-shadow': [
       'error',
       {
@@ -429,10 +753,30 @@ module.exports = {
         ignoreOnInitialization: true,
       },
     ],
-    'no-ternary':           'off',
-    'no-throw-literal':     'error',
-    'no-undef-init':        'warn',
-    'no-undefined':         'error',
+    
+    'no-tabs': [
+      'error',
+      { allowIndentationTabs: false },
+    ],
+    
+    'no-template-curly-in-string': 'error',
+    
+    'no-ternary': 'off',
+    
+    'no-throw-literal': 'error',
+    
+    'no-trailing-spaces': [
+      'error',
+      {
+        ignoreComments: true,
+        skipBlankLines: true,
+      },
+    ],
+    
+    'no-undef-init': 'warn',
+    
+    'no-undefined': 'error',
+    
     'no-underscore-dangle': [
       'warn',
       {
@@ -444,10 +788,16 @@ module.exports = {
         enforceInMethodNames:      false,
       },
     ],
+    
+    'no-unmodified-loop-condition': 'error',
+    
     'no-unneeded-ternary': [
       'error',
       { defaultAssignment: true },
     ],
+    
+    'no-unreachable-loop': 'error',
+    
     'no-unused-expressions': [
       'error',
       {
@@ -457,11 +807,19 @@ module.exports = {
         enforceForJSX:        false,
       },
     ],
-    'no-useless-call':         'error',
+    
+    'no-unused-private-class-members': 'error',
+    
+    'no-use-before-define': 'error',
+    
+    'no-useless-call': 'error',
+    
     'no-useless-computed-key': 'error',
-    'no-useless-concat':       'error',
-    'no-useless-constructor':  'error',
-    'no-useless-rename':       [
+    
+    'no-useless-concat': 'error',
+    
+    'no-useless-constructor': 'error',
+    'no-useless-rename':      [
       'error',
       {
         ignoreDestructuring: false,
@@ -482,7 +840,28 @@ module.exports = {
         terms:    [ 'todo' ],
       },
     ],
-    'object-shorthand': [
+    'no-whitespace-before-property':    'error',
+    'nonblock-statement-body-position': [
+      'error',
+      'below',
+    ],
+    'object-curly-newline': [
+      'error',
+      {
+        minProperties: 3,
+        multiline:     true,
+      },
+    ],
+    'object-curly-spacing': [
+      'error',
+      'always',
+      {
+        arraysInObjects:  true,
+        objectsInObjects: true,
+      },
+    ],
+    'object-property-newline': 'off',
+    'object-shorthand':        [
       'error',
       'always',
       {
@@ -503,337 +882,7 @@ module.exports = {
       'error',
       'always',
     ],
-    'prefer-arrow-callback': [
-      'error',
-      {
-        allowNamedFunctions: false,
-        allowUnboundThis:    true,
-      },
-    ],
-    'prefer-const': [
-      'error',
-      {
-        destructuring:          'all',
-        ignoreReadBeforeAssign: false,
-      },
-    ],
-    'prefer-destructuring':           'off',
-    'prefer-exponentiation-operator': 'off',
-    'prefer-named-capture-group':     'off',
-    'prefer-numeric-literals':        'off',
-    'prefer-object-has-own':          'error',
-    'prefer-object-spread':           'error',
-    'prefer-promise-reject-errors':   [
-      'error',
-      { allowEmptyReject: false },
-    ],
-    'prefer-regex-literals': [
-      'error',
-      { disallowRedundantWrapping: true },
-    ],
-    'prefer-rest-params': 'error',
-    'prefer-spread':      'error',
-    'prefer-template':    'error',
-    'quote-props':        [
-      'error',
-      'as-needed',
-      {
-        keywords:    true,
-        numbers:     true,
-        unnecessary: true,
-      },
-    ],
-    radix: [
-      'error',
-      'as-needed',
-    ],
-    'require-await':          'error',
-    'require-unicode-regexp': 'error',
-    'sort-imports':           [
-      'error',
-      {
-        allowSeparatedGroups:  false,
-        ignoreCase:            false,
-        ignoreDeclarationSort: false,
-        ignoreMemberSort:      false,
-        memberSyntaxSortOrder: [
-          'none',
-          'all',
-          'multiple',
-          'single',
-        ],
-      },
-    ],
-    'sort-keys': [
-      'warn',
-      'asc',
-      {
-        allowLineSeparatedGroups: false,
-        caseSensitive:            true,
-        minKeys:                  2,
-        natural:                  true,
-      },
-    ],
-    'sort-vars': [
-      'error',
-      { ignoreCase: false },
-    ],
-    'spaced-comment': [
-      'error',
-      'always',
-    ],
-    strict: [
-      'warn',
-      'never',
-    ],
-    'symbol-description': 'error',
-    'vars-on-top':        'error',
-    yoda:                 [
-      'error',
-      'never',
-      {
-        exceptRange:  true,
-        onlyEquality: true,
-      },
-    ],
-
-    // eslint-disable-next-line sort-keys
-    'array-bracket-newline': [
-      'error',
-      {
-        minItems:  2,
-        multiline: true,
-      },
-    ],
-    'array-bracket-spacing': [
-      'error',
-      'always',
-      {
-        arraysInArrays:  true,
-        objectsInArrays: true,
-        singleValue:     true,
-      },
-    ],
-    'array-element-newline': [
-      'error',
-      'always',
-    ],
-    'arrow-parens': [
-      'error',
-      'as-needed',
-      { requireForBlockBody: true },
-    ],
-    'arrow-spacing': [
-      'error',
-      {
-        after:  true,
-        before: true,
-      },
-    ],
-    'block-spacing': [
-      'error',
-      'always',
-    ],
-    'brace-style': [
-      'error',
-      '1tbs',
-      { allowSingleLine: false },
-    ],
-    'comma-dangle': [
-      'error',
-      'always-multiline',
-    ],
-    'comma-spacing': [
-      'error',
-      {
-        after:  true,
-        before: false,
-      },
-    ],
-    'comma-style': [
-      'error',
-      'last',
-    ],
-    'computed-property-spacing': [
-      'error',
-      'never',
-      { enforceForClassMembers: true },
-    ],
-    'dot-location': [
-      'error',
-      'property',
-    ],
-    'eol-last': [
-      'error',
-      'always',
-    ],
-    'func-call-spacing': [
-      'error',
-      'never',
-    ],
-    'function-call-argument-newline': [
-      'error',
-      'never',
-    ],
-    'function-paren-newline': [
-      'error',
-      'multiline-arguments',
-    ],
-    'generator-star-spacing': [
-      'error',
-      {
-        after:  false,
-        before: true,
-      },
-    ],
-    'implicit-arrow-linebreak': [
-      'error',
-      'beside',
-    ],
-    indent: [
-      'error',
-      2,
-    ],
-    'jsx-quotes': [
-      'error',
-      'prefer-single',
-    ],
-    'key-spacing': [
-      'error',
-      {
-        afterColon:  true,
-        align:       'value',
-        beforeColon: false,
-        mode:        'strict',
-      },
-    ],
-    'keyword-spacing': [
-      'error',
-      {
-        after:  true,
-        before: true,
-      },
-    ],
-    'line-comment-position': [
-      'error',
-      { position: 'above' },
-    ],
-    'linebreak-style': [
-      'error',
-      'unix',
-    ],
-    'lines-around-comment': [
-      'error',
-      {
-        afterBlockComment:          false,
-        afterLineComment:           false,
-        allowArrayEnd:              false,
-        allowArrayStart:            true,
-        allowBlockEnd:              false,
-        allowBlockStart:            true,
-        allowClassEnd:              false,
-        allowClassStart:            true,
-        allowObjectEnd:             false,
-        allowObjectStart:           true,
-        applyDefaultIgnorePatterns: false,
-        beforeBlockComment:         true,
-        beforeLineComment:          true,
-      },
-    ],
-    'lines-between-class-members': [
-      'error',
-      'always',
-      { exceptAfterSingleLine: false },
-    ],
-    'max-len': [
-      'error',
-      {
-        code:                   128,
-        comments:               128,
-        ignoreComments:         false,
-        ignoreRegExpLiterals:   true,
-        ignoreStrings:          true,
-        ignoreTemplateLiterals: true,
-        ignoreTrailingComments: false,
-        ignoreUrls:             true,
-        tabWidth:               2,
-      },
-    ],
-    'max-statements-per-line': [
-      'error',
-      { max: 1 },
-    ],
-    'multiline-ternary': [
-      'error',
-      'always-multiline',
-    ],
-    'new-parens': [
-      'error',
-      'always',
-    ],
-    'newline-per-chained-call': [
-      'error',
-      { ignoreChainWithDepth: 3 },
-    ],
-    'no-extra-parens': [
-      'error',
-      'all',
-      {
-        conditionalAssign:                  false,
-        enforceForArrowConditionals:        true,
-        enforceForFunctionPrototypeMethods: true,
-        enforceForNewInMemberExpressions:   true,
-        enforceForSequenceExpressions:      false,
-        ignoreJSX:                          'multi-line',
-        nestedBinaryExpressions:            false,
-        returnAssign:                       false,
-      },
-    ],
-    'no-multi-spaces': [
-      'error',
-      { ignoreEOLComments: false },
-    ],
-    'no-multiple-empty-lines': [
-      'error',
-      {
-        max:    1,
-        maxBOF: 0,
-        maxEOF: 1,
-      },
-    ],
-    'no-tabs': [
-      'error',
-      { allowIndentationTabs: false },
-    ],
-    'no-trailing-spaces': [
-      'error',
-      {
-        ignoreComments: true,
-        skipBlankLines: true,
-      },
-    ],
-    'no-whitespace-before-property':    'error',
-    'nonblock-statement-body-position': [
-      'error',
-      'below',
-    ],
-    'object-curly-newline': [
-      'error',
-      {
-        multiline:     true,
-        minProperties: 3,
-      },
-    ],
-    'object-curly-spacing': [
-      'error',
-      'always',
-      {
-        arraysInObjects:  true,
-        objectsInObjects: true,
-      },
-    ],
-    'object-property-newline': 'off',
-    'operator-linebreak':      [
+    'operator-linebreak': [
       'error',
       'before',
     ],
@@ -912,6 +961,46 @@ module.exports = {
        * },
        */
     ],
+    'prefer-arrow-callback': [
+      'error',
+      {
+        allowNamedFunctions: false,
+        allowUnboundThis:    true,
+      },
+    ],
+    'prefer-const': [
+      'error',
+      {
+        destructuring:          'all',
+        ignoreReadBeforeAssign: false,
+      },
+    ],
+    'prefer-destructuring':           'off',
+    'prefer-exponentiation-operator': 'off',
+    'prefer-named-capture-group':     'off',
+    'prefer-numeric-literals':        'off',
+    'prefer-object-has-own':          'error',
+    'prefer-object-spread':           'error',
+    'prefer-promise-reject-errors':   [
+      'error',
+      { allowEmptyReject: false },
+    ],
+    'prefer-regex-literals': [
+      'error',
+      { disallowRedundantWrapping: true },
+    ],
+    'prefer-rest-params': 'error',
+    'prefer-spread':      'error',
+    'prefer-template':    'error',
+    'quote-props':        [
+      'error',
+      'as-needed',
+      {
+        keywords:    true,
+        numbers:     true,
+        unnecessary: true,
+      },
+    ],
     quotes: [
       'error',
       'single',
@@ -920,7 +1009,14 @@ module.exports = {
         avoidEscape:           true,
       },
     ],
-    'rest-spread-spacing': [
+    radix: [
+      'error',
+      'as-needed',
+    ],
+    'require-atomic-updates': 'error',
+    'require-await':          'error',
+    'require-unicode-regexp': 'error',
+    'rest-spread-spacing':    [
       'error',
       'never',
     ],
@@ -939,6 +1035,36 @@ module.exports = {
     'semi-style': [
       'error',
       'first',
+    ],
+    'sort-imports': [
+      'error',
+      {
+        allowSeparatedGroups:  false,
+        ignoreCase:            false,
+        ignoreDeclarationSort: false,
+        ignoreMemberSort:      false,
+        memberSyntaxSortOrder: [
+          'none',
+          'all',
+          'multiple',
+          'single',
+        ],
+      },
+    ],
+    'sort-keys': [
+      'warn',
+      'asc',
+      {
+        allowLineSeparatedGroups: false,
+        caseSensitive:            true,
+        minKeys:                  2,
+        natural:                  true,
+      },
+    ],
+    'sort-keys-fix/sort-keys-fix': 'warn',
+    'sort-vars':                   [
+      'error',
+      { ignoreCase: false },
     ],
     'space-before-blocks': [
       'error',
@@ -963,6 +1089,14 @@ module.exports = {
         words:    true,
       },
     ],
+    'spaced-comment': [
+      'error',
+      'always',
+    ],
+    strict: [
+      'warn',
+      'never',
+    ],
     'switch-colon-spacing': [
       'error',
       {
@@ -970,6 +1104,7 @@ module.exports = {
         before: false,
       },
     ],
+    'symbol-description':     'error',
     'template-curly-spacing': [
       'error',
       'always',
@@ -982,12 +1117,19 @@ module.exports = {
       'warn',
       'never',
     ],
+
+    'unicorn/prefer-module': 'warn',
+    
+    'vars-on-top': 'error',
+    
     'wrap-iife': [
       'error',
       'inside',
       { functionPrototypeMethods: true },
     ],
-    'wrap-regex':         'error',
+    
+    'wrap-regex': 'error',
+    
     'yield-star-spacing': [
       'error',
       {
@@ -996,7 +1138,13 @@ module.exports = {
       },
     ],
 
-    // eslint-plugin-unicorn
-    'unicorn/prefer-module': 'warn',
+    yoda: [
+      'error',
+      'never',
+      {
+        exceptRange:  true,
+        onlyEquality: true,
+      },
+    ],
   },
 }
