@@ -5,8 +5,9 @@ const hasUnocss = localpkg.isPackageExists('@unocss/core')
 
 module.exports = {
   env: {
-    browser: true,
+    
     node:    true,
+    browser: true,
     es2022:  true,
   },
   parserOptions: {
@@ -162,9 +163,7 @@ module.exports = {
     'arrow-body-style': [
       'error',
       'as-needed',
-      {
-        requireReturnForObjectLiteral: false,
-      },
+      { requireReturnForObjectLiteral: false },
     ],
     'block-scoped-var': 'error',
     camelcase:          [
@@ -186,9 +185,7 @@ module.exports = {
     ],
     'class-methods-use-this': [
       'error',
-      {
-        enforceForClassFields: false,
-      },
+      { enforceForClassFields: false },
     ],
     complexity: [
       'error',
@@ -196,9 +193,7 @@ module.exports = {
     ],
     'consistent-return': [
       'error',
-      {
-        treatUndefinedAsUnspecified: false,
-      },
+      { treatUndefinedAsUnspecified: false },
     ],
     'consistent-this': [
       'error',
@@ -214,9 +209,7 @@ module.exports = {
     'default-param-last': 'error',
     'dot-notation':       [
       'error',
-      {
-        allowKeywords: false,
-      },
+      { allowKeywords: false },
     ],
     eqeqeq: [
       'error',
@@ -261,9 +254,7 @@ module.exports = {
     'logical-assignment-operators': [
       'error',
       'always',
-      {
-        enforceForIfStatements: true,
-      },
+      { enforceForIfStatements: true },
     ],
     'max-classes-per-file': [
       'error',
@@ -304,9 +295,7 @@ module.exports = {
     'max-statements': [
       'warn',
       50,
-      {
-        ignoreTopLevelFunctions: true,
-      },
+      { ignoreTopLevelFunctions: true },
     ],
     'multiline-comment-style': [
       'error',
@@ -344,23 +333,17 @@ module.exports = {
     'no-div-regex':   'warn',
     'no-else-return': [
       'error',
-      {
-        allowElseIf: true,
-      },
+      { allowElseIf: true },
     ],
     'no-empty-function': [
       'error',
-      {
-        allow: [ 'constructors' ],
-      },
+      { allow: [ 'constructors' ] },
     ],
     'no-empty-static-block': 'error',
     'no-eq-null':            'error',
     'no-eval':               [
       'error',
-      {
-        allowIndirect: true,
-      },
+      { allowIndirect: true },
     ],
     'no-extend-native':     'warn',
     'no-extra-bind':        'error',
@@ -377,17 +360,13 @@ module.exports = {
     ],
     'no-implicit-globals': [
       'error',
-      {
-        lexicalBindings: true,
-      },
+      { lexicalBindings: true },
     ],
     'no-implied-eval':    'error',
     'no-inline-comments': 'error',
     'no-invalid-this':    [
       'error',
-      {
-        capIsConstructor: false,
-      },
+      { capIsConstructor: false },
     ],
     'no-iterator':  'error',
     'no-label-var': 'error',
@@ -404,15 +383,11 @@ module.exports = {
     'no-magic-numbers':   'off',
     'no-mixed-operators': [
       'error',
-      {
-        allowSamePrecedence: true,
-      },
+      { allowSamePrecedence: true },
     ],
     'no-multi-assign': [
       'warn',
-      {
-        ignoreNonDeclaration: false,
-      },
+      { ignoreNonDeclaration: false },
     ],
     'no-multi-str':         'error',
     'no-negated-condition': 'error',
@@ -424,15 +399,11 @@ module.exports = {
     'no-octal-escape':      'error',
     'no-param-reassign':    [
       'error',
-      {
-        props: true,
-      },
+      { props: true },
     ],
     'no-plusplus': [
       'warn',
-      {
-        allowForLoopAfterthoughts: true,
-      },
+      { allowForLoopAfterthoughts: true },
     ],
     'no-proto':                 'error',
     'no-restricted-exports':    'off',
@@ -448,9 +419,7 @@ module.exports = {
     'no-script-url':   'error',
     'no-sequences':    [
       'error',
-      {
-        allowInParentheses: false,
-      },
+      { allowInParentheses: false },
     ],
     'no-shadow': [
       'error',
@@ -477,9 +446,7 @@ module.exports = {
     ],
     'no-unneeded-ternary': [
       'error',
-      {
-        defaultAssignment: true,
-      },
+      { defaultAssignment: true },
     ],
     'no-unused-expressions': [
       'error',
@@ -506,9 +473,7 @@ module.exports = {
     'no-var':            'error',
     'no-void':           [
       'error',
-      {
-        allowAsStatement: false,
-      },
+      { allowAsStatement: false },
     ],
     'no-warning-comments': [
       'error',
@@ -560,15 +525,11 @@ module.exports = {
     'prefer-object-spread':           'error',
     'prefer-promise-reject-errors':   [
       'error',
-      {
-        allowEmptyReject: false,
-      },
+      { allowEmptyReject: false },
     ],
     'prefer-regex-literals': [
       'error',
-      {
-        disallowRedundantWrapping: true,
-      },
+      { disallowRedundantWrapping: true },
     ],
     'prefer-rest-params': 'error',
     'prefer-spread':      'error',
@@ -615,9 +576,7 @@ module.exports = {
     ],
     'sort-vars': [
       'error',
-      {
-        ignoreCase: false,
-      },
+      { ignoreCase: false },
     ],
     'spaced-comment': [
       'error',
@@ -662,9 +621,7 @@ module.exports = {
     'arrow-parens': [
       'error',
       'as-needed',
-      {
-        requireForBlockBody: true,
-      },
+      { requireForBlockBody: true },
     ],
     'arrow-spacing': [
       'error',
@@ -680,9 +637,7 @@ module.exports = {
     'brace-style': [
       'error',
       '1tbs',
-      {
-        allowSingleLine: false,
-      },
+      { allowSingleLine: false },
     ],
     'comma-dangle': [
       'error',
@@ -702,9 +657,7 @@ module.exports = {
     'computed-property-spacing': [
       'error',
       'never',
-      {
-        enforceForClassMembers: true,
-      },
+      { enforceForClassMembers: true },
     ],
     'dot-location': [
       'error',
@@ -763,9 +716,7 @@ module.exports = {
     ],
     'line-comment-position': [
       'error',
-      {
-        position: 'above',
-      },
+      { position: 'above' },
     ],
     'linebreak-style': [
       'error',
@@ -792,9 +743,7 @@ module.exports = {
     'lines-between-class-members': [
       'error',
       'always',
-      {
-        exceptAfterSingleLine: false,
-      },
+      { exceptAfterSingleLine: false },
     ],
     'max-len': [
       'error',
@@ -812,9 +761,7 @@ module.exports = {
     ],
     'max-statements-per-line': [
       'error',
-      {
-        max: 1,
-      },
+      { max: 1 },
     ],
     'multiline-ternary': [
       'error',
@@ -826,9 +773,7 @@ module.exports = {
     ],
     'newline-per-chained-call': [
       'error',
-      {
-        ignoreChainWithDepth: 3,
-      },
+      { ignoreChainWithDepth: 3 },
     ],
     'no-extra-parens': [
       'error',
@@ -846,23 +791,19 @@ module.exports = {
     ],
     'no-multi-spaces': [
       'error',
-      {
-        ignoreEOLComments: false,
-      },
+      { ignoreEOLComments: false },
     ],
     'no-multiple-empty-lines': [
       'error',
       {
-        max:    2,
+        max:    1,
         maxBOF: 0,
         maxEOF: 1,
       },
     ],
     'no-tabs': [
       'error',
-      {
-        allowIndentationTabs: false,
-      },
+      { allowIndentationTabs: false },
     ],
     'no-trailing-spaces': [
       'error',
@@ -879,16 +820,16 @@ module.exports = {
     'object-curly-newline': [
       'error',
       {
-        consistent: true,
-        multiline:  true,
+        multiline:     true,
+        minProperties: 3,
       },
     ],
     'object-curly-spacing': [
       'error',
       'always',
       {
-        arraysInObjects:  false,
-        objectsInObjects: false,
+        arraysInObjects:  true,
+        objectsInObjects: true,
       },
     ],
     'object-property-newline': 'off',
@@ -986,9 +927,7 @@ module.exports = {
     semi: [
       'error',
       'never',
-      {
-        beforeStatementContinuationChars: 'always',
-      },
+      { beforeStatementContinuationChars: 'always' },
     ],
     'semi-spacing': [
       'error',
@@ -1015,9 +954,7 @@ module.exports = {
     ],
     'space-infix-ops': [
       'error',
-      {
-        int32Hint: false,
-      },
+      { int32Hint: false },
     ],
     'space-unary-ops': [
       'error',
@@ -1048,9 +985,7 @@ module.exports = {
     'wrap-iife': [
       'error',
       'inside',
-      {
-        functionPrototypeMethods: true,
-      },
+      { functionPrototypeMethods: true },
     ],
     'wrap-regex':         'error',
     'yield-star-spacing': [
