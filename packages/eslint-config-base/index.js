@@ -1,6 +1,7 @@
 const localpkg = require('local-pkg')
 
 const hasTailwindcss = localpkg.isPackageExists('tailwindcss')
+const hasUnocss = localpkg.isPackageExists('@unocss/core')
 
 module.exports = {
   env: {
@@ -29,7 +30,7 @@ module.exports = {
     '!.vscode',
     '!.github',
   ],
-  extends: ['eslint:recommended','plugin:import/recommended','plugin:unicorn/recommended', hasTailwindcss ? 'plugin:tailwindcss/recommended' : '', 'plugin:jsonc/recommended-with-json', 'plugin:yml/standard', 'plugin:toml/standard', 'plugin:markdown/recommended'],
+  extends: ['eslint:recommended','plugin:import/recommended','plugin:unicorn/recommended', hasTailwindcss ? 'plugin:tailwindcss/recommended' : '', 'plugin:jsonc/recommended-with-json', 'plugin:yml/standard', 'plugin:toml/standard', 'plugin:markdown/recommended', hasUnocss ? '@unocss' : ''],
   overrides: [
     {
       files: ['*.json', '*.json5', '*.jsonc'],
