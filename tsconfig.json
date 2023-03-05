@@ -1,9 +1,10 @@
 {
   "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
   "include": [
-    "packages/**/*"
+    "packages/**/*.ts"
   ],
   "compilerOptions": {
+    "baseUrl": ".",
     "allowJs": true
   }
 }
