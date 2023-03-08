@@ -1,5 +1,21 @@
 # @liting-yes/eslint-config-ts
 
+## 0.2.2
+
+### Patch Changes
+
+- fix
+- Updated dependencies
+  - @liting-yes/eslint-config-base@0.2.2
+
+## 0.2.1
+
+### Patch Changes
+
+- fix
+- Updated dependencies
+  - @liting-yes/eslint-config-base@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "@liting-yes/eslint-config-vue",
   "type": "commonjs",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "private": false,
   "description": "",
   "author": "liting <luz.liting@gmail.com>",
@@ -28,8 +28,8 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@liting-yes/eslint-config-base": "workspace:^0.2.0",
-    "@liting-yes/eslint-config-ts": "workspace:^0.2.0",
+    "@liting-yes/eslint-config-base": "workspace:^0.2.2",
+    "@liting-yes/eslint-config-ts": "workspace:^0.2.2",
     "eslint-plugin-vue": "^9.9.0",
     "local-pkg": "^0.4.3"
   },
