@@ -1,5 +1,14 @@
 # @liting-yes/eslint-config-react
 
+## 0.2.3
+
+### Patch Changes
+
+- unicorn/filename-case
+- Updated dependencies
+  - @liting-yes/eslint-config-base@0.2.3
+  - @liting-yes/eslint-config-ts@0.2.3
+
 ## 0.2.2
 
 ### Patch Changes
