@@ -924,42 +924,6 @@ module.exports = {
         ],
         prev: '*',
       },
-
-      /*
-       * {
-       *   blankLine: 'always',
-       *   prev: [
-       *     'block',
-       *     'block-like',
-       *     'break',
-       *     'cjs-export',
-       *     'class',
-       *     'continue',
-       *     'debugger',
-       *     'default',
-       *     'directive',
-       *     'do',
-       *     'empty',
-       *     'export',
-       *     'for',
-       *     'function',
-       *     'if',
-       *     'iife',
-       *     'multilin-block-like',
-       *     'multiline-const',
-       *     'multiline-expression',
-       *     'multiline-let',
-       *     'multiline-var',
-       *     'return',
-       *     'switch',
-       *     'throw',
-       *     'try',
-       *     'while',
-       *     'with',
-       *   ],
-       *   next: '*',
-       * },
-       */
     ],
     'prefer-arrow-callback': [
       'error',
@@ -1118,6 +1082,16 @@ module.exports = {
       'never',
     ],
 
+    'unicorn/filename-case': [
+      'error',
+      {
+        cases: {
+          camelCase:  true,
+          pascalCase: true,
+        },
+      },
+    ],
+    
     'unicorn/prefer-module': 'warn',
     
     'vars-on-top': 'error',
@@ -1129,7 +1103,7 @@ module.exports = {
     ],
     
     'wrap-regex': 'error',
-    
+
     'yield-star-spacing': [
       'error',
       {
@@ -1137,7 +1111,6 @@ module.exports = {
         before: false,
       },
     ],
-
     yoda: [
       'error',
       'never',
