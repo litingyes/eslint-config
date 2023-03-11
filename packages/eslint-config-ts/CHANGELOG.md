@@ -1,5 +1,16 @@
 # @liting-yes/eslint-config-ts
 
+## 0.3.0
+
+### Minor Changes
+
+- 2023/03/11
+
+### Patch Changes
+
+- Updated dependencies
+  - @liting-yes/eslint-config-base@0.3.0
+
 ## 0.2.3
 
 ### Patch Changes
