@@ -18,4 +18,10 @@ module.exports = {
     },
   ],
   plugins: [ '@typescript-eslint' ],
+  rules:   {
+    '@typescript-eslint/consistent-type-definitions': [
+      'error',
+      'interface',
+    ],
+  },
 }
