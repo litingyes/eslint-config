@@ -5,5 +5,9 @@ const hasReact = localpkg.isPackageExists('react')
 const hasTs = localpkg.isPackageExists('typescript')
 
 module.exports = {
-  extends: [hasVue ? '@liting-yes/eslint-config-vue' : '',hasReact ? '@liting-yes/eslint-config-react' : '', (!hasVue && !hasReact && hasTs) ? '@liting-yes/eslint-config-ts' : '@liting-yes/eslint-config-base'],
+  'extends': [
+    hasVue ? '@liting-yes/eslint-config-vue' : '',
+    hasReact ? '@liting-yes/eslint-config-react' : '',
+    ! hasVue && ! hasReact && hasTs ? '@liting-yes/eslint-config-ts' : '@liting-yes/eslint-config-base',
+  ],
 }

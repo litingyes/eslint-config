@@ -360,6 +360,46 @@ module.exports = {
       'beside',
     ],
     
+    'import/consistent-type-specifier-style': [
+      'error',
+      'prefer-top-level',
+    ],
+    'import/dynamic-import-chunkname': [
+      'warn',
+      {
+        importFunctions:        [ 'dynamicImport' ],
+        webpackChunknameFormat: '[a-zA-Z0-57-9-/_]+',
+      },
+    ],
+    'import/first':                'error',
+    'import/newline-after-import': [
+      'error',
+      { count: 1 },
+    ],
+    'import/no-amd':                     'error',
+    'import/no-cycle':                   'warn',
+    'import/no-empty-named-blocks':      'error',
+    'import/no-extraneous-dependencies': [
+      'warn',
+      {
+        bundledDependencies:  false,
+        optionalDependencies: false,
+        peerDependencies:     false,
+      },
+    ],
+    'import/no-mutable-exports':   'error',
+    'import/no-self-import':       'error',
+    'import/no-unassigned-import': 'warn',
+    'import/order':                [
+      'error',
+      {
+        alphabetize: {
+          caseInsensitive: true, order: 'asc', orderImportKind: 'asc',
+        },
+        warnOnUnassignedImports: true,
+      },
+    ],
+    
     indent: [
       'error',
       2,
@@ -811,8 +851,7 @@ module.exports = {
     
     'no-useless-computed-key': 'error',
     
-    'no-useless-concat': 'error',
-    
+    'no-useless-concat':      'error',
     'no-useless-constructor': 'error',
     'no-useless-rename':      [
       'error',
@@ -1072,11 +1111,12 @@ module.exports = {
       'error',
       'always',
     ],
+
     'unicode-bom': [
       'warn',
       'never',
     ],
-
+    
     'unicorn/filename-case': [
       'error',
       {
@@ -1096,9 +1136,8 @@ module.exports = {
       'inside',
       { functionPrototypeMethods: true },
     ],
-    
-    'wrap-regex': 'error',
 
+    'wrap-regex':         'error',
     'yield-star-spacing': [
       'error',
       {
