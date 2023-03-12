@@ -1,7 +1,7 @@
 {
   "name": "@liting-yes/eslint-config-react",
   "type": "commonjs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "description": "",
   "author": "liting <luz.liting@gmail.com>",
@@ -27,8 +27,8 @@
     "eslint": "^8.32.0"
   },
   "dependencies": {
-    "@liting-yes/eslint-config-base": "workspace:^0.3.0",
-    "@liting-yes/eslint-config-ts": "workspace:^0.3.0",
+    "@liting-yes/eslint-config-base": "workspace:^0.3.1",
+    "@liting-yes/eslint-config-ts": "workspace:^0.3.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",

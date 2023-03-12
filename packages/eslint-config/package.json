@@ -1,6 +1,6 @@
 {
   "name": "@liting-yes/eslint-config",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "description": "",
   "author": "liting <luz.liting@gmail.com>",
@@ -24,10 +24,10 @@
     "eslint": "^8.32.0"
   },
   "dependencies": {
-    "@liting-yes/eslint-config-base": "workspace:^0.3.0",
-    "@liting-yes/eslint-config-react": "workspace:^0.3.0",
-    "@liting-yes/eslint-config-ts": "workspace:^0.3.0",
-    "@liting-yes/eslint-config-vue": "workspace:^0.3.0",
+    "@liting-yes/eslint-config-base": "workspace:^0.3.1",
+    "@liting-yes/eslint-config-react": "workspace:^0.3.1",
+    "@liting-yes/eslint-config-ts": "workspace:^0.3.1",
+    "@liting-yes/eslint-config-vue": "workspace:^0.3.1",
     "local-pkg": "^0.4.3"
   },
   "devDependencies": {

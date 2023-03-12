@@ -1,5 +1,11 @@
 # @liting-yes/eslint-config-base
 
+## 0.3.1
+
+### Patch Changes
+
+- eslint-plugin-import
+
 ## 0.3.0
 
 ### Minor Changes

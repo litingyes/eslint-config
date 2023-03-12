@@ -1,5 +1,14 @@
 # @liting-yes/eslint-config-react
 
+## 0.3.1
+
+### Patch Changes
+
+- eslint-plugin-import
+- Updated dependencies
+  - @liting-yes/eslint-config-base@0.3.1
+  - @liting-yes/eslint-config-ts@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes
