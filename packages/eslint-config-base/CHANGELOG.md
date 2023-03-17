@@ -1,5 +1,11 @@
 # @liting-yes/eslint-config-base
 
+## 0.3.2
+
+### Patch Changes
+
+- add judge
+
 ## 0.3.1
 
 ### Patch Changes

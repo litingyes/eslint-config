@@ -1,5 +1,13 @@
 # @liting-yes/eslint-config-ts
 
+## 0.3.2
+
+### Patch Changes
+
+- add judge
+- Updated dependencies
+  - @liting-yes/eslint-config-base@0.3.2
+
 ## 0.3.1
 
 ### Patch Changes
