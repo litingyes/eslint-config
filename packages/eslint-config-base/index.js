@@ -1,3 +1,8 @@
+const { isPackageExists } = require('local-pkg')
+
+const hasTailwindcss = isPackageExists('tailwindcss')
+const hasUnocss = isPackageExists('@unocss/core')
+
 module.exports = {
   env: {
     browser: true,
@@ -8,8 +13,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:import/recommended',
     'plugin:unicorn/recommended',
-    'plugin:tailwindcss/recommended',
-    '@unocss',
+    hasTailwindcss ? 'plugin:tailwindcss/recommended' : '',
+    hasUnocss ? '@unocss' : '',
     'plugin:jsonc/recommended-with-json',
     'plugin:yml/standard',
     'plugin:toml/standard',
